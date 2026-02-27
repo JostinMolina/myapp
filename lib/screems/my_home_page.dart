@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -18,19 +19,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -49,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(
           widget.title,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
         titleSpacing: 00.0,
         centerTitle: true,
@@ -57,15 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
         toolbarOpacity: 0.8,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(25),
-              bottomLeft: Radius.circular(25)),
+            bottomRight: Radius.circular(25),
+            bottomLeft: Radius.circular(25),
+          ),
         ),
         elevation: 0.00,
         backgroundColor: Colors.greenAccent[400],
         foregroundColor: Colors.white,
       ),
 
-          
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -84,21 +72,38 @@ class _MyHomePageState extends State<MyHomePage> {
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          children: [
+            // 1 Botón normal
+            ElevatedButton(onPressed: () {}, child: Text("Botón Normal")),
+
+            SizedBox(height: 20),
+
+            // 2 Botón con estilo
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                elevation: 8,
+              ),
+              child: Text("Botón con Estilo"),
             ),
-            ElevatedButton(onPressed:null, child: Text('Boton 1')),
+
+            SizedBox(height: 20),
+
+            // 3 Botón con ícono
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.star),
+              label: Text("Botón con Ícono"),
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
