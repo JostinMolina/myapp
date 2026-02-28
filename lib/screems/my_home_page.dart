@@ -74,9 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // 1 Botón normal
-            ElevatedButton(onPressed: () {}, child: Text("Botón Normal")),
+            ElevatedButton(onPressed: () {}, child: Text("Botón 1")),
 
             SizedBox(height: 20),
+            //Icono
+            IconButton(onPressed: () {}, icon: Icon(Icons.add_alarm)),
 
             // 2 Botón con estilo
             ElevatedButton(
@@ -90,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 elevation: 8,
               ),
-              child: Text("Botón con Estilo"),
+              child: Text("Botón 2"),
             ),
 
             SizedBox(height: 20),
@@ -99,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton.icon(
               onPressed: () {},
               icon: Icon(Icons.star),
-              label: Text("Botón con Ícono"),
+              label: Text("Press"),
             ),
           ],
         ),
